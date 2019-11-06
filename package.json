@@ -13,9 +13,6 @@
   "license": "MIT",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
-  "files": [
-    "lib"
-  ],
   "keywords": [
     "react-overlays",
     "react-component",
@@ -34,24 +31,12 @@
     "build:esm": "babel src -d lib/esm --env-name esm",
     "build:pick": "cherry-pick ../src --cjs-dir=cjs --esm-dir=esm --cwd=lib",
     "deploy-docs": "yarn --cwd www build --prefix-paths && gh-pages -d www/public",
-    "lint": "eslint www/*.js www/src src test *.js",
     "prepublishOnly": "yarn build",
     "release": "rollout",
     "start": "yarn --cwd www start",
     "tdd": "cross-env NODE_ENV=test karma start",
     "test": "yarn lint && yarn testonly",
     "testonly": "yarn tdd --single-run"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "prettier": {
     "singleQuote": true,
@@ -104,7 +89,6 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
     "gh-pages": "^2.1.0",
-    "husky": "^3.0.2",
     "jquery": "^3.4.1",
     "karma": "^4.2.0",
     "karma-chrome-launcher": "^3.0.0",
